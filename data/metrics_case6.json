@@ -1,0 +1,13 @@
+{
+  "n_vehicles": 24,
+  "duration_s": 80.0,
+  "n_lane_changes": 19,
+  "mean_speed": 23.188842987790334,
+  "max_speed": 26.922948799204953,
+  "mobil": {
+    "politeness": 0.2,
+    "threshold": 0.2,
+    "b_safe": 3.0,
+    "bias_right": 0.3
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "case1_equilibrium": {
+    "status": "ok",
+    "seconds": 2.1
+  },
+  "case2_linear_stability": {
+    "status": "ok",
+    "seconds": 53.7
+  },
+  "case3_ring_string_stability": {
+    "status": "ok",
+    "seconds": 35.2
+  },
+  "case4_calibration": {
+    "status": "ok",
+    "seconds": 580.9
+  },
+  "case5_prediction": {
+    "status": "ok",
+    "seconds": 54.4
+  },
+  "case6_lanechange_mobil": {
+    "status": "ok",
+    "seconds": 0.8
+  },
+  "case7_energy": {
+    "status": "ok",
+    "seconds": 5.1
+  },
+  "case8_ngsim": {
+    "status": "ok",
+    "seconds": 196.1
+  }
+}

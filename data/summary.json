@@ -1,0 +1,99 @@
+{
+  "case1": {
+    "capacity_veh_h": {
+      "IDM": 2139.0,
+      "OVM": 1289.6,
+      "FVD": 1289.6,
+      "Helly": 2617.8,
+      "Newell": 2511.2
+    },
+    "v_crit_ms": {
+      "IDM": 17.77,
+      "OVM": 27.01,
+      "FVD": 27.01,
+      "Helly": 39.96,
+      "Newell": 29.97
+    }
+  },
+  "case2": {
+    "sign_agreement": 0.9944,
+    "analytic_unstable_fraction": 0.214
+  },
+  "case3": {
+    "ring_fitted_growth": {
+      "stable": -0.0206,
+      "unstable": 0.0641
+    },
+    "ring_predicted_growth": {
+      "stable": -0.0049,
+      "unstable": 0.0748
+    },
+    "helly_string_stable": {
+      "stable": true,
+      "unstable": false
+    }
+  },
+  "case5": {
+    "rmse_v": {
+      "CV": 0.814,
+      "CA": 1.127,
+      "IDM": 1.125,
+      "LSTM": 0.195
+    },
+    "rmse_gap": {
+      "CV": 3.428,
+      "CA": 3.314,
+      "IDM": 5.38,
+      "LSTM": 0.803
+    }
+  },
+  "case6": {
+    "n_lane_changes": 19,
+    "mean_speed": 23.19
+  },
+  "case7": {
+    "kwh_per_100km": {
+      "eco": 9.32,
+      "normal": 16.71,
+      "aggressive": 33.46,
+      "smooth stream (T=1.8)": 7.32,
+      "stop-and-go (T=0.5)": 14.09
+    },
+    "congestion_speed_std_ms": {
+      "smooth stream (T=1.8)": 0.0,
+      "stop-and-go (T=0.5)": 3.33
+    }
+  },
+  "case8": {
+    "source": "synthetic-fixture",
+    "n_events": 2,
+    "n_calibrated": 2
+  },
+  "case4": {
+    "A_rmse_gap_m": 0.0,
+    "A_max_param_err_pct": 0.0,
+    "B_best_model": "IDM",
+    "C_noise_table": [
+      {
+        "noise_m": 0.0,
+        "rmse_gap": 1.499406422820752e-12,
+        "mean_param_err": 2.876922176291916e-13
+      },
+      {
+        "noise_m": 0.1,
+        "rmse_gap": 0.14576843891871072,
+        "mean_param_err": 0.0364241521359049
+      },
+      {
+        "noise_m": 0.3,
+        "rmse_gap": 0.47951932535742503,
+        "mean_param_err": 0.03742377755714826
+      },
+      {
+        "noise_m": 0.6,
+        "rmse_gap": 0.9239896162195838,
+        "mean_param_err": 0.09561283266846958
+      }
+    ]
+  }
+}
