@@ -1,0 +1,21 @@
+# Normalise line endings across platforms.
+* text=auto
+
+# Text sources -> LF in the repository.
+*.py    text eol=lf
+*.md    text eol=lf
+*.toml  text eol=lf
+*.cfg   text eol=lf
+*.txt   text eol=lf
+*.csv   text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.gitignore text eol=lf
+
+# Binary artefacts.
+*.png  binary
+*.jpg  binary
+*.pdf  binary
+*.pt   binary
+*.pth  binary

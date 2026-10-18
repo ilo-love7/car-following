@@ -1,0 +1,50 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- Test / lint caches ----
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ---- Editors / OS ----
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+
+# ---- Project data ----
+# Real NGSIM/highD files are large and NOT redistributed; keep the folder,
+# ignore its contents except the placeholder.
+data/ngsim/*.txt
+data/ngsim/*.csv
+!data/ngsim/.gitkeep
+
+# Generated figures are kept in the repo by default. Uncomment to ignore them
+# and regenerate with `python scripts/run_all.py`.
+# figures/*.png
+
+# torch checkpoints from the optional LSTM demo
+*.pt
+*.pth
