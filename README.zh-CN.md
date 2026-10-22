@@ -1,0 +1,103 @@
+<div align="center">
+
+# Car-Following Traffic Modelling Toolkit
+
+**七种经典跟驰模型 + 稳定性分析 + 参数标定 + 轨迹预测，一个可复现的 Python 包。**
+
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Tests: 46 passing](https://img.shields.io/badge/tests-46%20passing-brightgreen.svg)](./tests)
+
+<p align="center">
+  <a href="./README.md">English</a> · <b>简体中文</b>
+</p>
+
+</div>
+
+---
+
+一个自包含、可复现的微观交通流建模库：7 种经典跟驰模型统一接口，包含基本图解析推导、线性/环形/弦稳定性分析、有界最小二乘标定、轨迹预测、MOBIL 换道与电动车能耗。
+
+## 特性
+
+- **7 种跟驰模型**统一接口：IDM、OVM、FVD、Helly/ACC、GHR、Gipps、Newell
+- **基本图与通行能力**由平衡间距解析推导
+- **线性稳定性**有闭式判据，并与环形车道特征值交叉验证
+- **弦稳定性**：Helly/ACC 给出解析传递函数
+- **有界最小二乘标定**，附噪声鲁棒性分析
+- **轨迹预测**：CV / CA / IDM / LSTM 四个基线
+- **MOBIL 换道**双车道微观仿真
+- **电动车能耗**模型，含能量回收
+- **NGSIM 数据适配器**，配合成 fixture 做端到端验证
+
+## 快速开始
+
+```bash
+# 克隆
+git clone https://github.com/ilo-love7/car-following.git
+cd car-following
+
+# 安装
+pip install -r requirements.txt
+
+# 跑全部实验（仅需 CPU）
+python scripts/run_all.py
+
+# 跑测试
+python -m pytest tests -q
+```
+
+测试的预期输出：
+
+```
+46 passed
+```
+
+## 用法
+
+```python
+from carfollowing import IDM, make_model
+from carfollowing.simulate import simulate_following
+from carfollowing.stability import linear_stability
+
+m = IDM(v0=30, T=1.2, s0=2.0, a=1.5, b=2.0)
+print(m.equilibrium_gap(20.0))          # 平衡间距
+print(linear_stability(m, 20.0))        # 线性稳定性裕度
+```
+
+## 仓库结构
+
+```
+car-following/
+├── src/carfollowing/          # 核心库
+│   ├── models.py              # 7 种跟驰模型
+│   ├── simulate.py            # 单跟驰车 & 环形车道仿真
+│   ├── equilibrium.py         # 微观基本图、通行能力
+│   ├── stability.py           # 线性、环形与弦稳定性
+│   ├── calibration.py         # 有界非线性最小二乘标定
+│   ├── metrics.py             # 精度与安全指标
+│   ├── energy.py              # 纵向电动车能耗模型
+│   ├── lanechange.py          # MOBIL 换道与双车道微观仿真
+│   └── datasets/
+│       ├── synthetic.py       # 可复现合成基准
+│       └── ngsim.py           # NGSIM 加载与事件抽取
+├── scripts/                   # 实验脚本 + run_all.py
+├── tests/                     # 46 个 pytest 用例
+├── data/                      # 生成的 CSV / JSON / fixture
+├── figures/                   # 结果图
+├── reports/                   # 技术报告、验收核查表、数据字典
+├── README.md
+├── LICENSE
+├── pyproject.toml
+└── requirements.txt
+```
+
+## 报告
+
+- [`reports/技术报告.md`](reports/技术报告.md) — 完整技术报告
+- [`reports/验收核查表.md`](reports/验收核查表.md) — 验收核查表
+- [`reports/数据来源与数据字典.md`](reports/数据来源与数据字典.md) — 数据来源与数据字典
+
+## 许可证
+
+MIT License，详见 [`LICENSE`](LICENSE)。
