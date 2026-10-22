@@ -53,6 +53,24 @@ python -m pytest tests -q
 46 passed
 ```
 
+## 这个工具包能做什么
+
+六个可直接上手的使用场景，每个都有可运行的入口（纯 CPU，不需要 GPU，也不需要私有数据）：
+
+| 用途 | 入口 |
+|---|---|
+| **在同一条件下对比 7 种跟驰模型**（IDM / OVM / FVD / Helly / Newell 等） | `python scripts/run_all.py case1` · `carfollowing.models.make_model` |
+| **做线性/车队稳定性分析与通行能力定位** | `carfollowing.stability.linear_stability`、`carfollowing.equilibrium.capacity_point` · `scripts/run_all.py case2 case3` |
+| **用实测轨迹（NGSIM）标定模型参数** | `carfollowing.calibration` · `scripts/run_all.py case4` |
+| **短时域轨迹预测与指标评估** | `carfollowing.metrics` · `scripts/run_all.py case5` |
+| **基于 MOBIL 的换道建模** | `carfollowing.lanechange` · `scripts/run_all.py case6` |
+| **从跟驰轨迹算电动车能耗** | `carfollowing.energy` · `scripts/run_all.py case7` |
+
+典型用途：① 作为**新模型的对照基线**；② 作为标定类论文的**可复现实验台**；
+③ 交通流课程的**教学材料**；④ 把 ACC/ADAS 逻辑放进仿真前的**健全性检查**。
+
+全部可离线复现：`python -m pytest tests -q`（46 个测试）不需要任何数据集，CI 覆盖 Linux 与 Windows。
+
 ## 用法
 
 ```python

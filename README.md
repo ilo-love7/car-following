@@ -53,6 +53,26 @@ Expected output of the test run:
 46 passed
 ```
 
+## What you can do with this toolkit
+
+Six concrete jobs, each with a runnable entry point (CPU only; no GPU and no private data):
+
+| Job | Entry point |
+|---|---|
+| **Compare seven car-following models under identical conditions** (IDM, OVM, FVD, Helly, Newell, …) | `python scripts/run_all.py case1` · `carfollowing.models.make_model` |
+| **Check linear / string stability and locate capacity** | `carfollowing.stability.linear_stability`, `carfollowing.equilibrium.capacity_point` · `scripts/run_all.py case2 case3` |
+| **Calibrate a model against real trajectories (NGSIM)** | `carfollowing.calibration` · `scripts/run_all.py case4` |
+| **Predict short-horizon trajectories and score them** | `carfollowing.metrics` · `scripts/run_all.py case5` |
+| **Lane-changing with MOBIL** | `carfollowing.lanechange` · `scripts/run_all.py case6` |
+| **EV energy consumption from a following trace** | `carfollowing.energy` · `scripts/run_all.py case7` |
+
+Typical uses: (1) a **baseline** to compare a new car-following model against;
+(2) a **reproducibility harness** for calibration papers; (3) **teaching material** for traffic-flow
+courses; (4) a **sanity check** before putting ACC/ADAS logic into a simulator.
+
+Everything runs offline: `python -m pytest tests -q` (46 tests) needs no datasets, and CI covers
+both Linux and Windows.
+
 ## Usage
 
 ```python
